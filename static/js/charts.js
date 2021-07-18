@@ -1,8 +1,10 @@
 //define a function that will create metadata for given sample
+console.log("Charts")
+
 function buildMetadata(selection) {
 
     // Read the json data
-    d3.json("Aviation.json").then((sampleData) => {
+    d3.json("/static/data/Aviation.json").then((sampleData) => {
         
     //filter & parse data to return sample data
     var parsedData=sampleData;
@@ -23,33 +25,15 @@ function buildMetadata(selection) {
 
     console.log(metadata)
     });
-}
-
-//Build charts
-function buildCharts(selection) 
-{
-
-    //read json file
-    d3.json("Aviation.json").then((sampleData) => {
-        console.log("sampleData");
-        console.log(sampleData);
-
-        //parse and filter data to get sample's OTU data
-        var  parsedData = sampleData.samples;
-        console.log(parsedData);
-
-        var sampleDict = parsedData.filter(item => item.id == selection)[0];
-        console.log("sampleDict");
-        console.log(sampleDict);
-    });
-}
-    
+} 
 
 //page load function
 function init() {
 
     //read json data
-    d3.json("Aviation.json").then((sampleData) => {
+    d3.json("/static/data/Aviation.json").then((sampleData) => {
+        console.log("sampleData");
+        console.log(sampleData);
 
         //filter and parse for sample names
         var parsedData = sampleData;
@@ -59,23 +43,26 @@ function init() {
         var dropdownMenu= d3.select("#selDataset");
 
         parsedData.forEach( (accident)=> {
+            console.log("accident");
+            console.log(accident);
 
             dropdownMenu.append("option").property("value", accident.ACCIDENT_NUMBER).text(accident.ACCIDENT_NUMBER);
        })
 
     
-
-       //build data and charts
-       buildCharts(parsedData[0]);
        buildMetadata(parsedData[0]);
+       
        
 
     });
 }
 
+
 function optionChanged(newSelection) {
+    console.log("newSelection");
+    console.log(newSelection);
     buildMetadata(newSelection);
-    buildCharts(newSelection);
+ 
 }
 
 init();
