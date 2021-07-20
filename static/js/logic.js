@@ -1,10 +1,19 @@
 // Creating map object
 var myMap = L.map("map", {
-    center: [42.77, -102.0902],
-    zoom: 3.5,
-    minZoom: 3
+  center: [42.77, -102.0902],
+  zoom: 3.5,
+  minZoom: 3
     
   });
+
+var layers = {
+  Airplane:
+  Balloon:
+  Glider:
+  Gyroplane:
+  
+
+}
   
 // Adding tile layer
 L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
@@ -16,31 +25,31 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
-//POTENTIALLY ADD THIS AS A LAYER FOR ALL ACCIDENTS AND MAKE OTHER LAYERS TO CERTAIN CRITERIA
+
 d3.csv("static/data/aviation2015.csv").then(function(response)  {
 //d3.json("static/data/Aviation.json").then(function(response)  {
-  console.log(response);
+console.log(response);
 
-    var planeIcon = L.icon({
-      iconUrl: "images/planes.png",
-      iconSize: [25, 25],
+var planeIcon = L.icon({
+  iconUrl: "images/planes.png",
+  iconSize: [25, 25],
 
-    })
+})
 
-    var incidents = response;
-    var incidentMarkers = [];
+var incidents = response;
+var incidentMarkers = [];
 
-    for (var index = 0; index < incidents.length; index++) {
-      var incident = incidents[index];
-    
-    var incidentMarker = L.marker([incident.LATITUDE, incident.LONGITUDE],{icon: planeIcon}).addTo(myMap);
+for (var index = 0; index < incidents.length; index++) {
+  var incident = incidents[index];
 
-    incidentMarker.bindPopup("Date: " + incident.EVENT_DATE + "<br>Accident Number: " + incident.ACCIDENT_NUMBER + "<br>City: " + incident.CITY + "<br>State: " + incident.STATE + "<br>Total Fatalities: " + incident.TOTAL_FATALITIES + "<br>Total Injuries: " + incident.TOTAL_INJURIES + "<br>Total Uninjured: " + incident.TOTAL_UNINJURED).openPopup;
-    
-  }  
-  
+var incidentMarker = L.marker([incident.LATITUDE, incident.LONGITUDE],{icon: planeIcon}).addTo(myMap);
 
+incidentMarker.bindPopup("Date: " + incident.EVENT_DATE + "<br>Accident Number: " + incident.ACCIDENT_NUMBER + "<br>City: " + incident.CITY + "<br>State: " + incident.STATE + "<br>Total Fatalities: " + incident.TOTAL_FATALITIES + "<br>Total Injuries: " + incident.TOTAL_INJURIES + "<br>Total Uninjured: " + incident.TOTAL_UNINJURED).openPopup;
+//incidentMarker.bindPopup("Date: " + incident.EVENT_DATE + "<br>Accident Number: " + incident.ACCIDENT_NUMBER + "<br>City: " + incident.CITY + "<br>Total Fatalities: " + incident.TOTAL_FATALITIES).openPopup;
 
+//ADD TIMESLIDER PLUGIN
+
+}  
 
 });
   
