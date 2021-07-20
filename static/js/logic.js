@@ -17,7 +17,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(myMap);
 
 //POTENTIALLY ADD THIS AS A LAYER FOR ALL ACCIDENTS AND MAKE OTHER LAYERS TO CERTAIN CRITERIA
-d3.csv("static/data/Aviation.csv").then(function(response)  {
+d3.csv("static/data/aviation2015.csv").then(function(response)  {
 //d3.json("static/data/Aviation.json").then(function(response)  {
   console.log(response);
 
@@ -33,12 +33,9 @@ d3.csv("static/data/Aviation.csv").then(function(response)  {
     for (var index = 0; index < incidents.length; index++) {
       var incident = incidents[index];
     
-     
-    
-
     var incidentMarker = L.marker([incident.LATITUDE, incident.LONGITUDE],{icon: planeIcon}).addTo(myMap);
 
-    incidentMarker.bindPopup("Date: " + incident.EVENT_DATE + "<br>Accident Number: " + incident.ACCIDENT_NUMBER + "<br>City: " + incident.CITY + "<br>Total Fatalities: " + incident.TOTAL_FATALITIES).openPopup;
+    incidentMarker.bindPopup("Date: " + incident.EVENT_DATE + "<br>Accident Number: " + incident.ACCIDENT_NUMBER + "<br>City: " + incident.CITY + "<br>State: " + incident.STATE + "<br>Total Fatalities: " + incident.TOTAL_FATALITIES + "<br>Total Injuries: " + incident.TOTAL_INJURIES + "<br>Total Uninjured: " + incident.TOTAL_UNINJURED).openPopup;
     
   }  
   
