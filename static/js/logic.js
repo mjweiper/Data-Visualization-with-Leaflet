@@ -67,7 +67,7 @@ var Weight_Shift = []
 
 
 
-d3.csv("static/data/aviation2015.csv").then(function(response)  {
+d3.csv("static/data/aviation2019.csv").then(function(response)  {
 //d3.json("static/data/Aviation.json").then(function(response)  {
 
   
@@ -76,6 +76,11 @@ var planeIcon = L.icon({
   iconUrl: "images/planes.png",
   iconSize: [25, 25],
 
+})
+
+var planeIcon2 = L.icon({
+  iconUrl: "images/Planes2.png",
+  iconSize: [25, 25],
 })
 
 //var incidents = response;
@@ -132,10 +137,23 @@ for (var index = 0; index < response.length; index++) {
   }
   
   
-  var incidentMarker = L.marker([incident.LATITUDE, incident.LONGITUDE],{icon: planeIcon})//.addTo(myMap);
-  incidentMarker.addTo(layers[aircraft_layer]);
+  if (incident.TOTAL_FATALITIES == 0) {
+  
+    var incidentMarker = L.marker([incident.LATITUDE, incident.LONGITUDE],{icon: planeIcon})//.addTo(myMap);
+    incidentMarker.addTo(layers[aircraft_layer]);
 
-  incidentMarker.bindPopup("Date: " + incident.EVENT_DATE + "<br>Accident Number: " + incident.ACCIDENT_NUMBER + "<br>Aircraft: " + incident.AIRCRAFT_CATEGORY + "<br>City: " + incident.CITY + "<br>State: " + incident.STATE + "<br>Total Fatalities: " + incident.TOTAL_FATALITIES + "<br>Total Injuries: " + incident.TOTAL_INJURIES + "<br>Total Uninjured: " + incident.TOTAL_UNINJURED).openPopup;
+    incidentMarker.bindPopup("Date: " + incident.EVENT_DATE + "<br>Accident Number: " + incident.ACCIDENT_NUMBER + "<br>Aircraft: " + incident.AIRCRAFT_CATEGORY + "<br>City: " + incident.CITY + "<br>State: " + incident.STATE + "<br>Total Fatalities: " + incident.TOTAL_FATALITIES + "<br>Total Injuries: " + incident.TOTAL_INJURIES + "<br>Total Uninjured: " + incident.TOTAL_UNINJURED).openPopup;
+  }
+
+  else {
+    var incidentMarker = L.marker([incident.LATITUDE, incident.LONGITUDE],{icon: planeIcon2})//.addTo(myMap);
+    incidentMarker.addTo(layers[aircraft_layer]); 
+
+    incidentMarker.bindPopup("Date: " + incident.EVENT_DATE + "<br>Accident Number: " + incident.ACCIDENT_NUMBER + "<br>Aircraft: " + incident.AIRCRAFT_CATEGORY + "<br>City: " + incident.CITY + "<br>State: " + incident.STATE + "<br>Total Fatalities: " + incident.TOTAL_FATALITIES + "<br>Total Injuries: " + incident.TOTAL_INJURIES + "<br>Total Uninjured: " + incident.TOTAL_UNINJURED).openPopup; 
+  }
+
+
+ 
 
 }
 
@@ -144,7 +162,7 @@ for (var index = 0; index < response.length; index++) {
 //console.log(Airplane)
 //incidentMarker.bindPopup("Date: " + incident.EVENT_DATE + "<br>Accident Number: " + incident.ACCIDENT_NUMBER + "<br>City: " + incident.CITY + "<br>Total Fatalities: " + incident.TOTAL_FATALITIES).openPopup;
 
-//ADD TIMESLIDER PLUGIN
+
   
 
 });
