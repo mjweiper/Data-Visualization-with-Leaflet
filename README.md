@@ -17,7 +17,7 @@ Took this data and determined what data was absolutely necessary to cut down on 
 
 In creating this visual I decided to use Javascript, HTML, and CSS to create a map displaying markers and layers of different accident data. I started with a html file and wrote out bones of website. Next created logic via javascript to put everything together. In creating a map I always use mapbox, so I added code and api key to utilize their mapping. Then proceeded by using d3 library to create code to pull in data and implement into my map. I thought it would be cool to show different markers (red for fatal accidents and blue for non-fatal) and create different layers for the type of aircrafts (airplane, helicopter, balloon, etc.)
 
-
+![Aviation-Accidents](Images/Picture1.png)
 
 ## 
 
