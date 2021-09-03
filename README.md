@@ -15,13 +15,15 @@ Took this data and determined what data was absolutely necessary to cut down on 
 
 ## Structure
 
-In creating this visual I decided to use Javascript, HTML, and CSS to create a map displaying markers and layers of different accident data. I started with a html file and wrote out bones of website. Next created logic via javascript to put everything together. In creating a map I always use mapbox, so I added code and api key to utilize their mapping. Then proceeded by using d3 library to create code to pull in data and implement into my map. I thought it would be cool to show different markers (red for fatal accidents and blue for non-fatal) and create different layers for the type of aircrafts (airplane, helicopter, balloon, etc.)
+In creating this visual I decided to use Javascript, HTML, and CSS to create a map displaying markers and layers of different accident data. I started with a html file and wrote out bones of website. Next created logic via javascript to put everything together. In creating a map I always use mapbox, so I added code and api key to utilize their mapping. Then proceeded by using d3 library to create code to pull in data and implement into my map. I thought it would be cool to create different markers to get a better understanding of data. I created red plane markers for fatal accidents, and blue marker for non-fatal. I would map these based on latitude and longitude points in my dataset.
 
 ![Aviation-Accidents](Images/Picture1.png)
 
-## 
+## Interaction
 
+Adding user interaction to the visual can help filter results to specific needs, so I decided to create different layers for the different kinds of aircrafts to get a better understanding of data. With the layers you are able to click boxes on the top right of visual to show the specific aircrafts you would like to look at. Outside of markers I wanted users to find out more about a specific accident, so if you click on a marker it will bring up popup with Date, Accident #, Aircraft, City, State, Fatalities, Injured, and Uninjured.
 
+![Aviation-Accidents](Images/Picture2.png)
 
 
 
