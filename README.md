@@ -28,6 +28,6 @@ Adding user interaction to the visual can help filter results to specific needs,
 
 
 
-- Contact
-- mattweiper@gmail.com
-- 
+Contact
+mattweiper@gmail.com
+
