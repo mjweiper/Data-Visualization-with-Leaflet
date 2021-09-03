@@ -21,7 +21,7 @@ In creating this visual I decided to use Javascript, HTML, and CSS to create a m
 
 ## Interaction
 
-Adding user interaction to the visual can help filter results to specific needs, so I decided to create different layers for the different kinds of aircrafts to get a better understanding of data. With the layers you are able to click boxes on the top right of visual to show the specific aircrafts you would like to look at. Outside of markers I wanted users to find out more about a specific accident, so if you click on a marker it will bring up popup with Date, Accident #, Aircraft, City, State, Fatalities, Injured, and Uninjured.
+Adding user interaction to the visual can help filter results to specific needs, so I decided to create different layers for the different kinds of aircrafts to get a better understanding of data. With the layers you are able to click boxes on the top right of visual to show the specific aircrafts you would like to look at. Outside of markers I wanted users to find out more about a specific accident, so if you click on a marker it will bring up popup with Date, Accident #, Aircraft, City, State, Fatalities, Injured, and Uninjured. (For example I am showing the Kobe Bryant Crash below)
 
 ![Aviation-Accidents](Images/Picture2.png)
 
